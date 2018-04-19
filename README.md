@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Deploy: https://rb-cli.herokuapp.com/
 
+Buildpack: https://github.com/heroku/heroku-buildpack-static.git
+
 ## R&D Links
 
 Stomp:
