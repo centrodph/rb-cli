@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import './assets/App.scss';
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
+const base = process.env.REACT_APP_SERVICE_URL;
 
 class App extends Component {
     componentDidMount() {
-        var sock = new SockJS('http://localhost:8080/socket');
+        var sock = new SockJS(`${base}socket`);
         sock.onopen = function() {
             console.log('open');
         };
