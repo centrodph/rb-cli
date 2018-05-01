@@ -7,6 +7,7 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 import './assets/App.css';
 import Notification from './component/Notification';
 import Footer from './component/Footer';
+import TopicList from './component/TopicList';
 
 const base = process.env.REACT_APP_SERVICE_URL;
 class App extends Component {
@@ -41,6 +42,7 @@ class App extends Component {
                 <div className="app-content">
                     <div className="main">
                         <h2>Main</h2>
+                        <TopicList />
                     </div>
                     <div className="side">
                         <Notification />
