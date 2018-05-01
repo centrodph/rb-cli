@@ -14,12 +14,12 @@ export const getTopics = () => {
         try {
             const result = await axios.get(TOPIC_URL);
             dispatch({
-                type: TOPIC_GET_ALL_FAIL,
+                type: TOPIC_GET_ALL_SUCCESS,
                 payload: result.data
             });
         } catch (error) {
             dispatch({
-                type: TOPIC_GET_ALL_SUCCESS,
+                type: TOPIC_GET_ALL_FAIL,
                 payload: error
             });
         }

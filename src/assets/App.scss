@@ -50,3 +50,21 @@ footer{
     flex: 2;
     padding: $simple-space;
 }
+
+.component-topic{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    div{
+        padding: 3px;
+    }
+    .topic-id{
+        flex: 1
+    }
+    .topic-interest{
+        flex: 8
+    }
+    .topic-type{
+        flex: 1
+    }
+}

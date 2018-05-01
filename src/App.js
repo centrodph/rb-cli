@@ -27,10 +27,10 @@ class App extends Component {
         const stompClient = Stomp.over(sock);
         stompClient.connect({}, function (frame) {
             stompClient.subscribe('/topic/greetings', function (greeting) {
-                console.info(greeting);
+                NotificationManager.success('Socket', greeting.body);
             });
             stompClient.subscribe('/app/topic', function (greeting) {
-                console.info(greeting);
+                NotificationManager.success('Socket', greeting.body);
             });
         });
     }

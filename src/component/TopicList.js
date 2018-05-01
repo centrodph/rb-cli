@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getTopics } from '../actions/topic';
+import Topic from './Topic';
 
 class TopicList extends Component {
 
@@ -12,7 +13,7 @@ class TopicList extends Component {
         if (loading === true) return "Loading...";
         return (
             <div className="component-topic-list">
-                list
+                {list.map(topic => <Topic topic={topic} />)}
             </div>
         );
     }

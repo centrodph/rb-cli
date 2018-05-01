@@ -40,3 +40,16 @@ footer {
 .side {
   flex: 2;
   padding: 20px; }
+
+.component-topic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+  .component-topic div {
+    padding: 3px; }
+  .component-topic .topic-id {
+    flex: 1; }
+  .component-topic .topic-interest {
+    flex: 8; }
+  .component-topic .topic-type {
+    flex: 1; }
