@@ -1,28 +1,34 @@
 import React, { Component } from 'react';
-import './assets/App.scss';
+import 'react-notifications/lib/notifications.css';
 import SockJS from 'sockjs-client';
 import Stomp from 'stompjs';
-const base = process.env.REACT_APP_SERVICE_URL;
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+//Custom
+import './assets/App.css';
+import Notification from './component/Notification';
+import Footer from './component/Footer';
 
+const base = process.env.REACT_APP_SERVICE_URL;
 class App extends Component {
     componentDidMount() {
+        console.error("ds");
         var sock = new SockJS(`${base}socket`);
-        sock.onopen = function() {
-            console.log('open');
+        sock.onopen = function () {
+            console.error("ds");
+            NotificationManager.success('Socket', 'Connection Close');
         };
-        sock.onmessage = function(e) {
-            console.log('message', e.data);
+        sock.onmessage = function (e) {
+            NotificationManager.success('Socket', 'new message');
         };
-        sock.onclose = function() {
-            console.log('close');
+        sock.onclose = function () {
+            NotificationManager.error('Socket', 'Connection Close', 5000);
         };
         const stompClient = Stomp.over(sock);
-        stompClient.connect({}, function(frame) {
-            console.info('Connected: ' + frame);
-            stompClient.subscribe('/topic/greetings', function(greeting) {
+        stompClient.connect({}, function (frame) {
+            stompClient.subscribe('/topic/greetings', function (greeting) {
                 console.info(greeting);
             });
-            stompClient.subscribe('/app/topic', function(greeting) {
+            stompClient.subscribe('/app/topic', function (greeting) {
                 console.info(greeting);
             });
         });
@@ -30,9 +36,18 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header">GP</header>
-                <p className="App-intro">Works</p>
+            <div className="component-app">
+                <header className="header">Simple Twitter app</header>
+                <div className="app-content">
+                    <div className="main">
+                        <h2>Main</h2>
+                    </div>
+                    <div className="side">
+                        <Notification />
+                        <NotificationContainer />
+                    </div>
+                </div>
+                <Footer />
             </div>
         );
     }
