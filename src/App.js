@@ -8,6 +8,7 @@ import './assets/App.css';
 import Notification from './component/Notification';
 import Footer from './component/Footer';
 import TopicList from './component/TopicList';
+import TopicForm from './component/TopicForm';
 
 const base = process.env.REACT_APP_SERVICE_URL;
 class App extends Component {
@@ -45,6 +46,7 @@ class App extends Component {
                         <TopicList />
                     </div>
                     <div className="side">
+                        <TopicForm />
                         <Notification />
                         <NotificationContainer />
                     </div>

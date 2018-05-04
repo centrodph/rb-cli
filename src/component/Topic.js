@@ -43,7 +43,7 @@ class Topic extends Component {
                 <div className="topic-type">
                     {findTyped &&
                         <GpSelect
-                            value={type == 1}
+                            value={type === 1}
                             propName="type"
                             textTrue="Interest"
                             textFalse="User"

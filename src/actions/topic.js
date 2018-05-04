@@ -59,7 +59,7 @@ export const updateTopic = (topic) => {
 export const removeTopic = (topic) => {
     return async dispatch => {
         dispatch({
-            type: TOPIC_REMOVE,
+            type: TOPIC_CREATE,
             payload: topic
         });
         try {
@@ -76,3 +76,26 @@ export const removeTopic = (topic) => {
         }
     };
 }
+
+export const createTopic = (topic) => {
+    return async dispatch => {
+        dispatch({
+            type: TOPIC_CREATE,
+            payload: topic
+        });
+        try {
+            const result = await axios.post(TOPIC_URL, topic);
+            dispatch({
+                type: TOPIC_CREATE_SUCCESS,
+                payload: result.data
+            });
+        } catch (error) {
+            dispatch({
+                type: TOPIC_CREATE_FAIL,
+                payload: error
+            });
+        }
+    };
+}
+
+
