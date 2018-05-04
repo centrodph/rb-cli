@@ -59,7 +59,7 @@ export const updateTopic = (topic) => {
 export const removeTopic = (topic) => {
     return async dispatch => {
         dispatch({
-            type: TOPIC_CREATE,
+            type: TOPIC_REMOVE,
             payload: topic
         });
         try {

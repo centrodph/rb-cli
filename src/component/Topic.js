@@ -53,6 +53,7 @@ class Topic extends Component {
                 </div>
                 <div className="topic-actions">
                     <button onClick={this.onRemove}>Remove</button>
+                    <button onClick={this.onSuscribe}>Suscribe</button>
                 </div>
             </div>
         );
