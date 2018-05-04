@@ -14,6 +14,7 @@
     "redux": "^4.0.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "riek": "^1.1.0",
     "sockjs-client": "^1.1.4",
     "stompjs": "^2.3.3"
   },

@@ -45,6 +45,8 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-between; }
+  .component-topic.block {
+    background: rgba(216, 252, 134, 0.3); }
   .component-topic div {
     padding: 3px; }
   .component-topic .topic-id {
