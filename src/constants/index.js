@@ -1,6 +1,10 @@
 //REST
 export const BASE_URL = process.env.REACT_APP_SERVICE_URL;
-export const TOPIC_URL = BASE_URL + 'topic/';
-export const SOCKET_URL = BASE_URL + 'socket/';
+export const TOPIC_URL = BASE_URL + "topic/";
+export const SOCKET_URL = BASE_URL + "socket/";
+export const TWITTER_URL = BASE_URL + "twitter/";
 //TYPES
-export const SEARCH_TYPES = [{ id: 1, text: 'Interest' }, { id: 2, text: 'User' }];
+export const SEARCH_TYPES = [
+  { id: 1, text: "Interest" },
+  { id: 2, text: "User" }
+];
