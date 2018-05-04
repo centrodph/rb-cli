@@ -4,13 +4,17 @@ import {
     TOPIC_GET_ALL_SUCCESS,
     TOPIC_UPDATE,
     TOPIC_UPDATE_FAIL,
-    TOPIC_UPDATE_SUCCESS
+    TOPIC_UPDATE_SUCCESS,
+    TOPIC_REMOVE,
+    TOPIC_REMOVE_FAIL,
+    TOPIC_REMOVE_SUCCESS
 } from '../actions/types';
 
 const INITIAL_STATE = {
     loading: true,
     list: null,
     editing: null,
+    removing: null,
     error: ''
 };
 
@@ -31,9 +35,18 @@ export default (state = INITIAL_STATE, action) => {
             return { ...state, editing: action.payload.id };
         case TOPIC_UPDATE_FAIL:
             return { ...state, editing: null };
-        case TOPIC_UPDATE_SUCCESS:
+        case TOPIC_UPDATE_SUCCESS: {
             let list = state.list.map(obj => action.payload.id === obj.id ? action.payload : obj);
             return { ...state, list, editing: null };
+        }
+        case TOPIC_REMOVE:
+            return { ...state, removing: action.payload.id };
+        case TOPIC_REMOVE_FAIL:
+            return { ...state, removing: null };
+        case TOPIC_REMOVE_SUCCESS: {
+            let list = state.list.filter(obj => action.payload !== obj.id);
+            return { ...state, list, removing: null };
+        }
         default:
             return state;
     }

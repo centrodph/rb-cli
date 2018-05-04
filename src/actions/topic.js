@@ -4,9 +4,6 @@ import {
     TOPIC_GET_ALL,
     TOPIC_GET_ALL_FAIL,
     TOPIC_GET_ALL_SUCCESS,
-    TOPIC_UPDATE,
-    TOPIC_UPDATE_FAIL,
-    TOPIC_UPDATE_SUCCESS,
     TOPIC_CREATE,
     TOPIC_CREATE_FAIL,
     TOPIC_CREATE_SUCCESS,
@@ -66,10 +63,10 @@ export const removeTopic = (topic) => {
             payload: topic
         });
         try {
-            const result = await axios.delete(TOPIC_URL + topic.id, topic);
+            const result = await axios.delete(TOPIC_URL + topic.id);
             dispatch({
                 type: TOPIC_REMOVE_SUCCESS,
-                payload: result.data
+                payload: topic.id
             });
         } catch (error) {
             dispatch({

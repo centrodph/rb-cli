@@ -32,10 +32,10 @@ class Topic extends Component {
     }
 
     render() {
-        const { topic: { id, interest, type }, block } = this.props;
+        const { topic: { id, interest, type }, editing, removing } = this.props;
         const findTyped = SEARCH_TYPES.find(item => item.id === type);
         return (
-            <div className={`component-topic ${block ? 'block' : ''}`}>
+            <div className={`component-topic ${editing ? 'block' : ''}  ${removing ? 'removing' : ''}`}>
                 <div className="topic-id">{id}</div>
                 <div className="topic-interest">
                     <GpField value={interest} propName="interest" change={this.onChange} />
